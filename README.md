@@ -1,23 +1,47 @@
-# Patna-Car-Rental
-Online Car Rental Management System 
-
-This is a Web based Application developed using PHP as a Host Language. Database for the Application is in "Database" folder. It can be imported to your localhost(phpMyAdmin) or any other servers. Also configure the "connection.php" to set up the necessary connections with the database.
-
-### Screenshots:
-> - Landing Page
-<img src="/Screenshots/index.jpg" width="800" height="450" alt="landing_page"/>
-
-> - Available Cars
-<img src="/Screenshots/available_cars.png" width="800" height="450" alt="available_cars"/>
-
-> - Add Cars
-<img src="/Screenshots/add_car.png" width="800" height="700" alt="add_car"/>
-
-> - Booking Confirmation
-<img src="/Screenshots/booking_confirmation.png" width="800" height="800" alt="booking_confirm"/>
-
-> - Return Car
-<img src="/Screenshots/return_car.png" width="800" height="450" alt="return_car"/>
-
-> - Booking Summary
-<img src="/Screenshots/bookings.png" width="800" height="450" alt="booking_summary"/>
+<h1>Car Rental Website | A Car Rental System using PHP & MYSQL</h1>
+<h2>Car Rental Online Reservations</h2>
+<p>
+Car Rental Website using PHP and Mysql, HTML, CSS, JS, VUE JS.
+The website has two sides; 1- The client-side and 2- The admin side.
+1- for the client-side, the user or the client can reserve a car by selecting the pickup and return date then the user will get a collection of cars that are available during the selected time, and finally, the user has to enter his details, and then the reservations will be created successfully.
+2- for the admin side, the admin can manage reservations and manage cars, car brands, and car types (Create, Read, Update, Delete)	
+</p>
+<hr>
+<div>
+	<h3>Technologies</h3>
+  	<ul>
+		<li>HTML & CSS</li>
+		<li>Bootstrap</li>
+		<li>JavaScript & Jquery & VUE JS</li>
+		<li>PHP & MYSQL</li>
+	</ul>
+</div>
+<hr>
+<div>
+	<h3>Website presentation</h3>
+  	<ul>
+		<li>https://www.youtube.com/watch?v=_u02Sp3plBQ&t=5s&ab_channel=IdrissJairi</li>
+		<li>Admin Login Page: http://localhost/CarRentalWebsite/admin/</li>
+	</ul>
+	<p>
+		Username: jairiidriss
+		<br>
+		Password: 123456789
+	</p>
+</div>
+<hr>
+<div>
+	<h3>Installation</h3>
+  	<ol>
+		<li>Download the files + database file (.sql)</li>
+		<li>Create new database with the name "car_rental" and then Import the sql file downloaded </li>
+		<li>Check the files connect.php to make sure that everything is working</li>
+		<li>The website is ready to use</li>
+		<li>Feel free to edit the missig parts or the existing parts</li>
+	</ol>
+</div>
+<p>Questions and Clarifications: If you have any questions feel free to contact me: https://www.facebook.com/jairiidriss/</p>
+<hr>
+<h3>Car Rental Website in PHP and Mysql</h3>
+<img src =  "./car_rental_front.png" alt = "Car Rental Front">
+<img src =  "./car_rental_dashboard.png" alt = "Car Rental Dashboard">

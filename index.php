@@ -1,237 +1,405 @@
-<!DOCTYPE html>
-<html>
 <?php 
-session_start(); 
-require 'connection.php';
-$conn = Connect();
+    #PHP INCLUDES
+    include "connect.php";
+    include "Includes/templates/header.php";
+    include "Includes/templates/navbar.php";
 ?>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Rentals</title>
-    <link rel="shortcut icon" type="image/png" href="assets/img/P.png">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/user.css">
-    <link rel="stylesheet" href="assets/w3css/w3.css">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-</head>
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation" style="color: black">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                    <i class="fa fa-bars"></i>
-                    </button>
-                <a class="navbar-brand page-scroll" href="index.php">
-                   Car Rentals </a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-
-            <?php
-                if(isset($_SESSION['login_client'])){
-            ?> 
-            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="index.php">Home</a>
-                    </li>
-                    <li>
-                        <a href="#"><span class="glyphicon glyphicon-user"></span> Welcome <?php echo $_SESSION['login_client']; ?></a>
-                    </li>
-                    <li>
-                    <ul class="nav navbar-nav navbar-right">
-            <li><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Control Panel <span class="caret"></span> </a>
-                <ul class="dropdown-menu">
-              <li> <a href="entercar.php">Add Car</a></li>
-              <li> <a href="enterdriver.php"> Add Driver</a></li>
-              <li> <a href="clientview.php">View</a></li>
-
-            </ul>
-            </li>
-          </ul>
-                    </li>
-                    <li>
-                        <a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
-                    </li>
-                </ul>
-            </div>
-            
-            <?php
-                }
-                else if (isset($_SESSION['login_customer'])){
-            ?>
-            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="index.php">Home</a>
-                    </li>
-                    <li>
-                        <a href="#"><span class="glyphicon glyphicon-user"></span> Welcome <?php echo $_SESSION['login_customer']; ?></a>
-                    </li>
-                    <ul class="nav navbar-nav">
-            <li><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Garagge <span class="caret"></span> </a>
-                <ul class="dropdown-menu">
-              <li> <a href="prereturncar.php">Return Now</a></li>
-              <li> <a href="mybookings.php"> My Bookings</a></li>
-            </ul>
-            </li>
-          </ul>
-                    <li>
-                        <a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
-                    </li>
-                </ul>
-            </div>
-
-            <?php
-            }
-                else {
-            ?>
-
-            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="index.php">Home</a>
-                    </li>
-                    <li>
-                        <a href="clientlogin.php">Employee</a>
-                    </li>
-                    <li>
-                        <a href="customerlogin.php">Customer</a>
-                    </li>
-                    <li>
-                        <a href="faq/index.php"> FAQ </a>
-                    </li>
-                </ul>
-            </div>
-                <?php   }
-                ?>
-            <!-- /.navbar-collapse -->
+<!-- Home Section -->
+<section class = "home_section">
+    <div class="section-header">
+        <div class="section-title" style = "font-size:50px; color:white">
+            Find Best Car & Limousine
         </div>
-        <!-- /.container -->
-    </nav>
-    <div class="bgimg-1">
-        <header class="intro">
-            <div class="intro-body">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <h1 class="brand-heading" style="color: black">Car Rentals</h1>
-                            <p class="intro-text">
-                                Online Car Rental Service
-                            </p>
-                            <a href="#sec2" class="btn btn-circle page-scroll blink">
-                                <i class="fa fa-angle-double-down animated"></i>
-                            </a>
+        <hr class="separator">
+		<div class="section-tagline">
+            From as low as $10 per day with limited time offer discounts
+		</div>					
+	</div>
+</section>
+
+<!-- Our Services Section -->
+<section class = "our-services" id = "services">
+    <div class = "container">
+        <div class="section-header">
+            <div class="section-title">
+                What Services we offer to our clients
+            </div>
+            <hr class="separator">
+            <div class="section-tagline">
+                Who are in extremely love with eco friendly system.
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="single-feature">
+                    <h4>
+                        <span>
+                            <i class="far fa-user"></i>
+                        </span>
+                        Expert Technicians
+                    </h4>
+                    <p>
+                        Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-feature">
+                    <h4>
+                        <span>
+                            <i class="fas fa-certificate"></i>
+                        </span>
+                        Professional Service
+                    </h4>
+                    <p>
+                        Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-feature">
+                    <h4>
+                        <span>
+                            <i class="fas fa-phone-alt"></i>
+                        </span>
+                        Great Support
+                    </h4>
+                    <p>
+                        Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-feature">
+                    <h4>
+                        <span>
+                            <i class="fas fa-rocket"></i>
+                        </span>
+                        Technical Skills
+                    </h4>
+                    <p>
+                        Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-feature">
+                    <h4>
+                        <span>
+                            <i class="fas fa-gem"></i>
+                        </span>
+                        Highly Recomended
+                    </h4>
+                    <p>
+                        Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-feature">
+                    <h4>
+                        <span>
+                            <i class="far fa-comments"></i>
+                        </span>
+                        Positive Reviews
+                    </h4>
+                    <p>
+                        Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Area Section -->
+<section class = "about-area">
+    <div class = "container-fluid">
+        <div class = "row">
+            <div class = "col-md-6 left-area" style = "padding:0px">
+                <img src="Design/images/about-img.jpg" alt="Car Rental Image">
+            </div>
+            <div class = "col-md-6 right-area" style = "padding:50px">
+                <h1>
+                    Globally Connected <br>
+                    by Large Network
+                </h1>
+                <p>
+                    <span>
+                        We are here to listen from you deliver exellence
+                    </span>
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
+                </p>
+                <a class="my-btn bttn" href="#">get details</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Brands Section -->
+<section class = "our-brands" id = "brands">
+    <div class = "container">
+        <div class="section-header">
+            <div class="section-title">
+                First Class Car Rental & Limousine Services
+            </div>
+            <hr class="separator">
+            <div class="section-tagline">
+                We offer professional car rental & limousine services in our range of high-end vehicles
+            </div>
+        </div>
+        <div class = "car-brands">
+            <div class = "row">
+            <?php
+
+                $stmt = $con->prepare("Select * from car_brands");
+                $stmt->execute();
+                $car_brands = $stmt->fetchAll();
+
+                foreach($car_brands as $car_brand)
+                {
+                    $car_brand_img = "admin/Uploads/images/".$car_brand['brand_image'];
+                    ?>
+                    <div class = "col-md-4">
+                        <div class = "car-brand" style = "background-image: url(<?php echo $car_brand_img ?>);">
+                            <div class = "brand_name">
+                                <h3>
+                                    <?php echo $car_brand['brand_name']; ?>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                }
+
+            ?>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CAR RESERVATION SECTION -->
+<section class="reservation_section" style = "padding:50px 0px" id = "reserve">
+	<div class="container">
+		<div class = "row">
+			<div class = "col-md-5"></div>
+			<div class = "col-md-7">
+				<form method="POST" action = "reserve.php" class = "car-reservation-form" id = "reservation_form" v-on:submit = "checkForm">
+					<div class="text_header">
+						<span>
+							Find your car
+						</span>
+					</div>
+					<div>
+						<div class = "form-group">
+							<label for="pickup_location">Pickup Location</label>
+							<input type = "text" class = "form-control" name = "pickup_location" placeholder = "34 Mainfield Road" v-model = 'pickup_location'>
+							<div class="invalid-feedback" style = "display:block" v-if="pickup_location === null">
+								Pickup location is required
+							</div>
+						</div>
+						<div class = "form-group">
+							<label for="return_location">Return Location</label>
+							<input type = "text" class = "form-control" name = "return_location" placeholder = "34 Mainfield Road" v-model = 'return_location'>
+							<div class="invalid-feedback" style = "display:block" v-if="return_location === null">
+								Return location is required
+							</div>
+						</div>
+						<div class = "form-group">
+							<label for="pickup_date">Pickup Date</label>
+							<input type = "date" min = "<?php echo date('Y-m-d', strtotime("+1 day"))?>" name = "pickup_date" class = "form-control" v-model = 'pickup_date'>
+							<div class="invalid-feedback" style = "display:block" v-if="pickup_date === null">
+								Pickup date is required
+							</div>
+						</div>
+						<div class = "form-group">
+							<label for="return_date">Return Date</label>
+							<input type = "date" min = "<?php echo date('Y-m-d', strtotime("+2 day"))?>" name = "return_date"  class = "form-control" v-model = 'return_date'>
+							<div class="invalid-feedback" style = "display:block" v-if="return_date === null">
+								Return date is required
+							</div>
+						</div>
+						<!-- Submit Button -->
+						<button type="submit" class="btn sbmt-bttn" name = "reserve_car">Book Instantly</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- CONTACT SECTION -->
+
+<section class="contact-section" id="contact-us">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 sm-padding">
+                <div class="contact-info">
+                    <h2>
+                        Get in touch with us & 
+                        <br>send us message today!
+                    </h2>
+                    <p>
+                        Getting dressed up and traveling with good friends makes for a shared, unforgettable experience.
+                    </p>
+                    <h3>
+                        198 West 21th Street, Suite 721 
+                        <br>
+                        New York, NY 10010
+                    </h3>
+                    <ul>
+                        <li>
+                            <span style = "font-weight: bold">Email:</span> 
+                            contact@yahyacarrental.com
+                        </li>
+                        <li>
+                            <span style = "font-weight: bold">Phone:</span> 
+                            +88 (0) 101 0000 000
+                        </li>
+                        <li>
+                            <span style = "font-weight: bold">Fax:</span> 
+                            +88 (0) 202 0000 001
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6 sm-padding">
+                <div class="contact-form">
+                    <div id="contact_ajax_form" class="contactForm">
+                        <div class="form-group colum-row row">
+                            <div class="col-sm-6">
+                                <input type="text" id="contact_name" name="name" class="form-control" placeholder="Name">
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="email" id="contact_email" name="email" class="form-control" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <input type="text" id="contact_subject" name="subject" class="form-control" placeholder="Subject">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <textarea id="contact_message" name="message" cols="30" rows="5" class="form-control message" placeholder="Message"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <button id="contact_send" class="contact_send_btn">Send Message</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </header>
-    </div>
-
-    <div id="sec2" style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
-        <h3 style="text-align:center;">Available Cars</h3>
-<br>
-        <section class="menu-content">
-            <?php   
-            $sql1 = "SELECT * FROM cars WHERE car_availability='yes'";
-            $result1 = mysqli_query($conn,$sql1);
-
-            if(mysqli_num_rows($result1) > 0) {
-                while($row1 = mysqli_fetch_assoc($result1)){
-                    $car_id = $row1["car_id"];
-                    $car_name = $row1["car_name"];
-                    $ac_price = $row1["ac_price"];
-                    $ac_price_per_day = $row1["ac_price_per_day"];
-                    $non_ac_price = $row1["non_ac_price"];
-                    $non_ac_price_per_day = $row1["non_ac_price_per_day"];
-                    $car_img = $row1["car_img"];
-               
-                    ?>
-            <a href="booking.php?id=<?php echo($car_id) ?>">
-            <div class="sub-menu">
-            
-
-            <img class="card-img-top" src="<?php echo $car_img; ?>" alt="Card image cap">
-            <h5><b> <?php echo $car_name; ?> </b></h5>
-            <h6> AC Fare: <?php echo ("Rs. " . $ac_price . "/km & Rs." . $ac_price_per_day . "/day"); ?></h6>
-            <h6> Non-AC Fare: <?php echo ("Rs. " . $non_ac_price . "/km & Rs." . $non_ac_price_per_day . "/day"); ?></h6>
-
-            
-            </div> 
-            </a>
-            <?php }}
-            else {
-                ?>
-<h1> No cars available :( </h1>
-                <?php
-            }
-            ?>                                   
-        </section>
-                    
-    </div>
-
-    <div class="bgimg-2">
-        <div class="caption">
-            <span class="border" style="background-color:transparent;font-size:25px;color: #f7f7f7;"></span>
         </div>
     </div>
+</section>
 
-    
-    <!-- Container (Contact Section) -->
-    <!-- -->
-    <footer class="site-footer">
-        <div class="container">
-            <hr>
-            <div class="row">
-                <div class="col-sm-6">
-                    <h5>© <?php echo date("Y"); ?> Car Rentals</h5>
+<!-- Footer Section -->
+<section class="widget_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="footer_widget">
+                    <a class="navbar-brand" href="">
+                        Yah<span style = "color:#04DBC0">Ya</span>&nbsp;CarRental
+                    </a>
+                    <p>
+                        Getting dressed up and traveling with good friends makes for a shared, unforgettable experience.
+                    </p>
+                    <ul class="widget_social">
+                        <li><a href="#" data-toggle="tooltip" title="Facebook"><i class="fab fa-facebook-f fa-2x"></i></a></li>
+                        <li><a href="#" data-toggle="tooltip" title="Twitter"><i class="fab fa-twitter fa-2x"></i></a></li>
+                        <li><a href="#" data-toggle="tooltip" title="Instagram"><i class="fab fa-instagram fa-2x"></i></a></li>
+                        <li><a href="#" data-toggle="tooltip" title="LinkedIn"><i class="fab fa-linkedin fa-2x"></i></a></li>
+                        <li><a href="#" data-toggle="tooltip" title="Google+"><i class="fab fa-google-plus-g fa-2x"></i></a></li>
+                    </ul>
                 </div>
-                
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="footer_widget">
+                    <h3>Contact Info</h3>
+                    <ul class = "contact_info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>962 Fifth Avenue, 3rd Floor New York, NY10022
+                        </li>
+                        <li>
+                            <i class="far fa-envelope"></i>contact@barbershop.com
+                        </li>
+                        <li>
+                            <i class="fas fa-mobile-alt"></i>+123 456 789 101
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="footer_widget">
+                    <h3>Newsletter</h3>
+                    <p style = "margin-bottom:0px">Don't miss a thing! Sign up to receive daily deals</p>
+                    <div class="subscribe_form">
+                        <form action="#" class="subscribe_form" novalidate="true">
+                            <input type="email" name="EMAIL" id="subs-email" class="form_input" placeholder="Email Address...">
+                            <button type="submit" class="submit">SUBSCRIBE</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-    </footer>
-    <script>
-        function myMap() {
-            myCenter = new google.maps.LatLng(25.614744, 85.128489);
-            var mapOptions = {
-                center: myCenter,
-                zoom: 12,
-                scrollwheel: true,
-                draggable: true,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
-            var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
+    </div>
+</section>
 
-            var marker = new google.maps.Marker({
-                position: myCenter,
-            });
-            marker.setMap(map);
-        }
-    </script>
-    <script>
-        function sendGaEvent(category, action, label) {
-            ga('send', {
-                hitType: 'event',
-                eventCategory: category,
-                eventAction: action,
-                eventLabel: label
-            });
-        };
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCuoe93lQkgRaC7FB8fMOr_g1dmMRwKng&callback=myMap" type="text/javascript"></script>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <!-- Plugin JavaScript -->
-    <script src="assets/js/jquery.easing.min.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="assets/js/theme.js"></script>
-</body>
+<!-- BOTTOM FOOTER -->
+<?php include "Includes/templates/footer.php"; ?>
 
-</html>
+
+
+<script>
+
+new Vue({
+    el: "#reservation_form",
+    data: {
+        pickup_location: '',
+        return_location: '',
+        pickup_date: '',
+		return_date: ''
+    },
+    methods:{
+        checkForm: function(event){
+            if( this.pickup_location && this.return_location && this.pickup_date && this.return_date)
+            {
+                return true;
+            }
+            
+            if (!this.pickup_location)
+            {
+                this.pickup_location = null;
+            }
+
+            if (!this.return_location)
+            {
+                this.return_location = null;
+            }
+
+            if (!this.pickup_date)
+            {
+                this.pickup_date = null;
+            }
+
+			if (!this.return_date)
+            {
+                this.return_date = null;
+            }
+            
+            event.preventDefault();
+        },
+    }
+})
+
+
+</script>
