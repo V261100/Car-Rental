@@ -1,243 +1,405 @@
 <?php 
-session_start();
-include('includes/config.php');
-error_reporting(0);
-
+    #PHP INCLUDES
+    include "connect.php";
+    include "Includes/templates/header.php";
+    include "Includes/templates/navbar.php";
 ?>
 
-<!DOCTYPE HTML>
-<html lang="en">
-<head>
+<!-- Home Section -->
+<section class = "home_section">
+    <div class="section-header">
+        <div class="section-title" style = "font-size:50px; color:white">
+            Find Best Car & Limousine
+        </div>
+        <hr class="separator">
+		<div class="section-tagline">
+            From as low as $10 per day with limited time offer discounts
+		</div>					
+	</div>
+</section>
 
-<title>Car Rental Portal</title>
-<!--Bootstrap -->
-<link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
-<link rel="stylesheet" href="assets/css/style.css" type="text/css">
-<link rel="stylesheet" href="assets/css/owl.carousel.css" type="text/css">
-<link rel="stylesheet" href="assets/css/owl.transitions.css" type="text/css">
-<link href="assets/css/slick.css" rel="stylesheet">
-<link href="assets/css/bootstrap-slider.min.css" rel="stylesheet">
-<link href="assets/css/font-awesome.min.css" rel="stylesheet">
-		<link rel="stylesheet" id="switcher-css" type="text/css" href="assets/switcher/css/switcher.css" media="all" />
-		<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/red.css" title="red" media="all" data-default-color="true" />
-		<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/orange.css" title="orange" media="all" />
-		<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/blue.css" title="blue" media="all" />
-		<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/pink.css" title="pink" media="all" />
-		<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/green.css" title="green" media="all" />
-		<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/purple.css" title="purple" media="all" />
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/favicon-icon/apple-touch-icon-144-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/favicon-icon/apple-touch-icon-114-precomposed.html">
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/favicon-icon/apple-touch-icon-72-precomposed.png">
-<link rel="apple-touch-icon-precomposed" href="assets/images/favicon-icon/apple-touch-icon-57-precomposed.png">
-<link rel="shortcut icon" href="assets/images/favicon-icon/favicon.png">
-<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet"> 
-</head>
-<body>
-
-<!-- Start Switcher -->
-<?php include('includes/colorswitcher.php');?>
-<!-- /Switcher -->  
-        
-<!--Header-->
-<?php include('includes/header.php');?>
-<!-- /Header --> 
-
-<!-- Banners -->
-<section id="banner" class="banner-section">
-  <div class="container">
-    <div class="div_zindex">
-      <div class="row">
-        <div class="col-md-5 col-md-push-7">
-          <div class="banner_content">
-            <h1>&nbsp;</h1>
-            <p>&nbsp; </p>
+<!-- Our Services Section -->
+<section class = "our-services" id = "services">
+    <div class = "container">
+        <div class="section-header">
+            <div class="section-title">
+                What Services we offer to our clients
+            </div>
+            <hr class="separator">
+            <div class="section-tagline">
+                Who are in extremely love with eco friendly system.
             </div>
         </div>
-      </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="single-feature">
+                    <h4>
+                        <span>
+                            <i class="far fa-user"></i>
+                        </span>
+                        Expert Technicians
+                    </h4>
+                    <p>
+                        Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-feature">
+                    <h4>
+                        <span>
+                            <i class="fas fa-certificate"></i>
+                        </span>
+                        Professional Service
+                    </h4>
+                    <p>
+                        Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-feature">
+                    <h4>
+                        <span>
+                            <i class="fas fa-phone-alt"></i>
+                        </span>
+                        Great Support
+                    </h4>
+                    <p>
+                        Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-feature">
+                    <h4>
+                        <span>
+                            <i class="fas fa-rocket"></i>
+                        </span>
+                        Technical Skills
+                    </h4>
+                    <p>
+                        Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-feature">
+                    <h4>
+                        <span>
+                            <i class="fas fa-gem"></i>
+                        </span>
+                        Highly Recomended
+                    </h4>
+                    <p>
+                        Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-feature">
+                    <h4>
+                        <span>
+                            <i class="far fa-comments"></i>
+                        </span>
+                        Positive Reviews
+                    </h4>
+                    <p>
+                        Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
-<!-- /Banners --> 
 
-
-<!-- Resent Cat-->
-<section class="section-padding gray-bg">
-  <div class="container">
-    <div class="section-header text-center">
-      <h2>Find the Best <span>CarForYou</span></h2>
-      <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+<!-- About Area Section -->
+<section class = "about-area">
+    <div class = "container-fluid">
+        <div class = "row">
+            <div class = "col-md-6 left-area" style = "padding:0px">
+                <img src="Design/images/about-img.jpg" alt="Car Rental Image">
+            </div>
+            <div class = "col-md-6 right-area" style = "padding:50px">
+                <h1>
+                    Globally Connected <br>
+                    by Large Network
+                </h1>
+                <p>
+                    <span>
+                        We are here to listen from you deliver exellence
+                    </span>
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
+                </p>
+                <a class="my-btn bttn" href="#">get details</a>
+            </div>
+        </div>
     </div>
-    <div class="row"> 
-      
-      <!-- Nav tabs -->
-      <div class="recent-tab">
-        <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active"><a href="#resentnewcar" role="tab" data-toggle="tab">New Car</a></li>
-        </ul>
-      </div>
-      <!-- Recently Listed New Cars -->
-      <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="resentnewcar">
-
-<?php $sql = "SELECT tblvehicles.VehiclesTitle,tblbrands.BrandName,tblvehicles.PricePerDay,tblvehicles.FuelType,tblvehicles.ModelYear,tblvehicles.id,tblvehicles.SeatingCapacity,tblvehicles.VehiclesOverview,tblvehicles.Vimage1 from tblvehicles join tblbrands on tblbrands.id=tblvehicles.VehiclesBrand limit 9";
-$query = $dbh -> prepare($sql);
-$query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query->rowCount() > 0)
-{
-foreach($results as $result)
-{  
-?>  
-
-<div class="col-list-3">
-<div class="recent-car-list">
-<div class="car-info-box"> <a href="vehical-details.php?vhid=<?php echo htmlentities($result->id);?>"><img src="admin/img/vehicleimages/<?php echo htmlentities($result->Vimage1);?>" class="img-responsive" alt="image"></a>
-<ul>
-<li><i class="fa fa-car" aria-hidden="true"></i><?php echo htmlentities($result->FuelType);?></li>
-<li><i class="fa fa-calendar" aria-hidden="true"></i><?php echo htmlentities($result->ModelYear);?> Model</li>
-<li><i class="fa fa-user" aria-hidden="true"></i><?php echo htmlentities($result->SeatingCapacity);?> seats</li>
-</ul>
-</div>
-<div class="car-title-m">
-<h6><a href="vehical-details.php?vhid=<?php echo htmlentities($result->id);?>"> <?php echo htmlentities($result->VehiclesTitle);?></a></h6>
-<span class="price">$<?php echo htmlentities($result->PricePerDay);?> /Day</span> 
-</div>
-<div class="inventory_info_m">
-<p><?php echo substr($result->VehiclesOverview,0,70);?></p>
-</div>
-</div>
-</div>
-<?php }}?>
-       
-      </div>
-    </div>
-  </div>
 </section>
-<!-- /Resent Cat --> 
 
-<!-- Fun Facts-->
-<section class="fun-facts-section">
-  <div class="container div_zindex">
-    <div class="row">
-      <div class="col-lg-3 col-xs-6 col-sm-3">
-        <div class="fun-facts-m">
-          <div class="cell">
-            <h2><i class="fa fa-calendar" aria-hidden="true"></i>40+</h2>
-            <p>Years In Business</p>
-          </div>
+<!-- Our Brands Section -->
+<section class = "our-brands" id = "brands">
+    <div class = "container">
+        <div class="section-header">
+            <div class="section-title">
+                First Class Car Rental & Limousine Services
+            </div>
+            <hr class="separator">
+            <div class="section-tagline">
+                We offer professional car rental & limousine services in our range of high-end vehicles
+            </div>
         </div>
-      </div>
-      <div class="col-lg-3 col-xs-6 col-sm-3">
-        <div class="fun-facts-m">
-          <div class="cell">
-            <h2><i class="fa fa-car" aria-hidden="true"></i>1200+</h2>
-            <p>New Cars For Sale</p>
-          </div>
+        <div class = "car-brands">
+            <div class = "row">
+            <?php
+
+                $stmt = $con->prepare("Select * from car_brands");
+                $stmt->execute();
+                $car_brands = $stmt->fetchAll();
+
+                foreach($car_brands as $car_brand)
+                {
+                    $car_brand_img = "admin/Uploads/images/".$car_brand['brand_image'];
+                    ?>
+                    <div class = "col-md-4">
+                        <div class = "car-brand" style = "background-image: url(<?php echo $car_brand_img ?>);">
+                            <div class = "brand_name">
+                                <h3>
+                                    <?php echo $car_brand['brand_name']; ?>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                }
+
+            ?>
+            </div>
         </div>
-      </div>
-      <div class="col-lg-3 col-xs-6 col-sm-3">
-        <div class="fun-facts-m">
-          <div class="cell">
-            <h2><i class="fa fa-car" aria-hidden="true"></i>1000+</h2>
-            <p>Used Cars For Sale</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-xs-6 col-sm-3">
-        <div class="fun-facts-m">
-          <div class="cell">
-            <h2><i class="fa fa-user-circle-o" aria-hidden="true"></i>600+</h2>
-            <p>Satisfied Customers</p>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
-  <!-- Dark Overlay-->
-  <div class="dark-overlay"></div>
 </section>
-<!-- /Fun Facts--> 
 
-
-<!--Testimonial -->
-<section class="section-padding testimonial-section parallex-bg">
-  <div class="container div_zindex">
-    <div class="section-header white-text text-center">
-      <h2>Our Satisfied <span>Customers</span></h2>
-    </div>
-    <div class="row">
-      <div id="testimonial-slider">
-<?php 
-$tid=1;
-$sql = "SELECT tbltestimonial.Testimonial,tblusers.FullName from tbltestimonial join tblusers on tbltestimonial.UserEmail=tblusers.EmailId where tbltestimonial.status=:tid limit 4";
-$query = $dbh -> prepare($sql);
-$query->bindParam(':tid',$tid, PDO::PARAM_STR);
-$query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query->rowCount() > 0)
-{
-foreach($results as $result)
-{  ?>
-
-
-        <div class="testimonial-m">
- 
-          <div class="testimonial-content">
-            <div class="testimonial-heading">
-              <h5><?php echo htmlentities($result->FullName);?></h5>
-            <p><?php echo htmlentities($result->Testimonial);?></p>
-          </div>
-        </div>
-        </div>
-        <?php }} ?>
-        
-       
-  
-      </div>
-    </div>
-  </div>
-  <!-- Dark Overlay-->
-  <div class="dark-overlay"></div>
+<!-- CAR RESERVATION SECTION -->
+<section class="reservation_section" style = "padding:50px 0px" id = "reserve">
+	<div class="container">
+		<div class = "row">
+			<div class = "col-md-5"></div>
+			<div class = "col-md-7">
+				<form method="POST" action = "reserve.php" class = "car-reservation-form" id = "reservation_form" v-on:submit = "checkForm">
+					<div class="text_header">
+						<span>
+							Find your car
+						</span>
+					</div>
+					<div>
+						<div class = "form-group">
+							<label for="pickup_location">Pickup Location</label>
+							<input type = "text" class = "form-control" name = "pickup_location" placeholder = "34 Mainfield Road" v-model = 'pickup_location'>
+							<div class="invalid-feedback" style = "display:block" v-if="pickup_location === null">
+								Pickup location is required
+							</div>
+						</div>
+						<div class = "form-group">
+							<label for="return_location">Return Location</label>
+							<input type = "text" class = "form-control" name = "return_location" placeholder = "34 Mainfield Road" v-model = 'return_location'>
+							<div class="invalid-feedback" style = "display:block" v-if="return_location === null">
+								Return location is required
+							</div>
+						</div>
+						<div class = "form-group">
+							<label for="pickup_date">Pickup Date</label>
+							<input type = "date" min = "<?php echo date('Y-m-d', strtotime("+1 day"))?>" name = "pickup_date" class = "form-control" v-model = 'pickup_date'>
+							<div class="invalid-feedback" style = "display:block" v-if="pickup_date === null">
+								Pickup date is required
+							</div>
+						</div>
+						<div class = "form-group">
+							<label for="return_date">Return Date</label>
+							<input type = "date" min = "<?php echo date('Y-m-d', strtotime("+2 day"))?>" name = "return_date"  class = "form-control" v-model = 'return_date'>
+							<div class="invalid-feedback" style = "display:block" v-if="return_date === null">
+								Return date is required
+							</div>
+						</div>
+						<!-- Submit Button -->
+						<button type="submit" class="btn sbmt-bttn" name = "reserve_car">Book Instantly</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </section>
-<!-- /Testimonial--> 
+
+<!-- CONTACT SECTION -->
+
+<section class="contact-section" id="contact-us">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 sm-padding">
+                <div class="contact-info">
+                    <h2>
+                        Get in touch with us & 
+                        <br>send us message today!
+                    </h2>
+                    <p>
+                        Getting dressed up and traveling with good friends makes for a shared, unforgettable experience.
+                    </p>
+                    <h3>
+                        198 West 21th Street, Suite 721 
+                        <br>
+                        New York, NY 10010
+                    </h3>
+                    <ul>
+                        <li>
+                            <span style = "font-weight: bold">Email:</span> 
+                            contact@yahyacarrental.com
+                        </li>
+                        <li>
+                            <span style = "font-weight: bold">Phone:</span> 
+                            +88 (0) 101 0000 000
+                        </li>
+                        <li>
+                            <span style = "font-weight: bold">Fax:</span> 
+                            +88 (0) 202 0000 001
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6 sm-padding">
+                <div class="contact-form">
+                    <div id="contact_ajax_form" class="contactForm">
+                        <div class="form-group colum-row row">
+                            <div class="col-sm-6">
+                                <input type="text" id="contact_name" name="name" class="form-control" placeholder="Name">
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="email" id="contact_email" name="email" class="form-control" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <input type="text" id="contact_subject" name="subject" class="form-control" placeholder="Subject">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <textarea id="contact_message" name="message" cols="30" rows="5" class="form-control message" placeholder="Message"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <button id="contact_send" class="contact_send_btn">Send Message</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer Section -->
+<section class="widget_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="footer_widget">
+                    <a class="navbar-brand" href="">
+                        Yah<span style = "color:#04DBC0">Ya</span>&nbsp;CarRental
+                    </a>
+                    <p>
+                        Getting dressed up and traveling with good friends makes for a shared, unforgettable experience.
+                    </p>
+                    <ul class="widget_social">
+                        <li><a href="#" data-toggle="tooltip" title="Facebook"><i class="fab fa-facebook-f fa-2x"></i></a></li>
+                        <li><a href="#" data-toggle="tooltip" title="Twitter"><i class="fab fa-twitter fa-2x"></i></a></li>
+                        <li><a href="#" data-toggle="tooltip" title="Instagram"><i class="fab fa-instagram fa-2x"></i></a></li>
+                        <li><a href="#" data-toggle="tooltip" title="LinkedIn"><i class="fab fa-linkedin fa-2x"></i></a></li>
+                        <li><a href="#" data-toggle="tooltip" title="Google+"><i class="fab fa-google-plus-g fa-2x"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="footer_widget">
+                    <h3>Contact Info</h3>
+                    <ul class = "contact_info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>962 Fifth Avenue, 3rd Floor New York, NY10022
+                        </li>
+                        <li>
+                            <i class="far fa-envelope"></i>contact@barbershop.com
+                        </li>
+                        <li>
+                            <i class="fas fa-mobile-alt"></i>+123 456 789 101
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="footer_widget">
+                    <h3>Newsletter</h3>
+                    <p style = "margin-bottom:0px">Don't miss a thing! Sign up to receive daily deals</p>
+                    <div class="subscribe_form">
+                        <form action="#" class="subscribe_form" novalidate="true">
+                            <input type="email" name="EMAIL" id="subs-email" class="form_input" placeholder="Email Address...">
+                            <button type="submit" class="submit">SUBSCRIBE</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BOTTOM FOOTER -->
+<?php include "Includes/templates/footer.php"; ?>
 
 
-<!--Footer -->
-<?php include('includes/footer.php');?>
-<!-- /Footer--> 
 
-<!--Back to top-->
-<div id="back-top" class="back-top"> <a href="#top"><i class="fa fa-angle-up" aria-hidden="true"></i> </a> </div>
-<!--/Back to top--> 
+<script>
 
-<!--Login-Form -->
-<?php include('includes/login.php');?>
-<!--/Login-Form --> 
+new Vue({
+    el: "#reservation_form",
+    data: {
+        pickup_location: '',
+        return_location: '',
+        pickup_date: '',
+		return_date: ''
+    },
+    methods:{
+        checkForm: function(event){
+            if( this.pickup_location && this.return_location && this.pickup_date && this.return_date)
+            {
+                return true;
+            }
+            
+            if (!this.pickup_location)
+            {
+                this.pickup_location = null;
+            }
 
-<!--Register-Form -->
-<?php include('includes/registration.php');?>
+            if (!this.return_location)
+            {
+                this.return_location = null;
+            }
 
-<!--/Register-Form --> 
+            if (!this.pickup_date)
+            {
+                this.pickup_date = null;
+            }
 
-<!--Forgot-password-Form -->
-<?php include('includes/forgotpassword.php');?>
-<!--/Forgot-password-Form --> 
+			if (!this.return_date)
+            {
+                this.return_date = null;
+            }
+            
+            event.preventDefault();
+        },
+    }
+})
 
-<!-- Scripts --> 
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script> 
-<script src="assets/js/interface.js"></script> 
-<!--Switcher-->
-<script src="assets/switcher/js/switcher.js"></script>
-<!--bootstrap-slider-JS--> 
-<script src="assets/js/bootstrap-slider.min.js"></script> 
-<!--Slider-JS--> 
-<script src="assets/js/slick.min.js"></script> 
-<script src="assets/js/owl.carousel.min.js"></script>
 
-</body>
-
-<!-- Mirrored from themes.webmasterdriver.net/carforyou/demo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 16 Jun 2017 07:22:11 GMT -->
-</html>
+</script>

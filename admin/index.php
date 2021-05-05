@@ -1,95 +1,132 @@
 <?php
-session_start();
-include('includes/config.php');
-if(isset($_POST['login']))
-{
-$email=$_POST['username'];
-$password=md5($_POST['password']);
-$sql ="SELECT UserName,Password FROM admin WHERE UserName=:email and Password=:password";
-$query= $dbh -> prepare($sql);
-$query-> bindParam(':email', $email, PDO::PARAM_STR);
-$query-> bindParam(':password', $password, PDO::PARAM_STR);
-$query-> execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-if($query->rowCount() > 0)
-{
-$_SESSION['alogin']=$_POST['username'];
-echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
-} else{
-  
-  echo "<script>alert('Invalid Details');</script>";
+	session_start();
 
-}
+	// IF THE USER HAS ALREADY LOGGED IN
+	if(isset($_SESSION['username_yahya_car_rental']) && isset($_SESSION['password_yahya_car_rental']))
+	{
+		header('Location: dashboard.php');
+		exit();
+	}
+	// ELSE
+	$pageTitle = 'Admin Login';
+	include 'connect.php';
+	include 'Includes/functions/functions.php';
 
-}
 
 ?>
-<!doctype html>
-<html lang="en" class="no-js">
 
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-	<meta name="description" content="">
-	<meta name="author" content="">
 
-	<title>Car Rental Portal | Admin Login</title>
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/dataTables.bootstrap.min.css">
-	<link rel="stylesheet" href="css/bootstrap-social.css">
-	<link rel="stylesheet" href="css/bootstrap-select.css">
-	<link rel="stylesheet" href="css/fileinput.min.css">
-	<link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
-	<link rel="stylesheet" href="css/style.css">
-</head>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Admin Login</title>
+		<!-- FONTS FILE -->
+		<link href="Design/fonts/css/all.min.css" rel="stylesheet" type="text/css">
 
-<body>
-	
-	<div class="login-page bk-img" style="background-image: url(img/login-bg.jpg);">
-		<div class="form-content">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6 col-md-offset-3">
-						<h1 class="text-center text-bold mt-4x" style="color:#fff">Admin | Sign in</h1>
-						<div class="well row pt-2x pb-3x bk-light">
-							<div class="col-md-8 col-md-offset-2">
-								<form method="post">
+		<!-- Nunito FONT FAMILY FILE -->
+		<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-									<label for="" class="text-uppercase text-sm">Your Username </label>
-									<input type="text" placeholder="Username" name="username" class="form-control mb">
+		<!-- CSS FILES -->
+		<link href="Design/css/sb-admin-2.min.css" rel="stylesheet">
+		<link href="Design/css/main.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="login">
+			<form class="login-container validate-form" name="login-form" method="POST" action="index.php">
+				<span class="login100-form-title p-b-32">
+					Admin Login
+				</span>
 
-									<label for="" class="text-uppercase text-sm">Password</label>
-									<input type="password" placeholder="Password" name="password" class="form-control mb">
-		
+				<!-- PHP SCRIPT WHEN SUBMIT -->
 
-									<button class="btn btn-primary btn-block" name="login" type="submit">LOGIN</button>
+				<?php
 
-								</form>
+					if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['signin-button']))
+					{
+						$username = test_input($_POST['username']);
+						$password = test_input($_POST['password']);
+						$hashedPass = sha1($password);
 
-			<p style="margin-top: 4%" align="center"><a href="../index.php">Back to Home</a>	</p>
+						//Check if User Exist In database
+
+						$stmt = $con->prepare("Select user_id, username,password from users where username = ? and password = ?");
+						$stmt->execute(array($username,$hashedPass));
+						$row = $stmt->fetch();
+						$count = $stmt->rowCount();
+
+						// Check if count > 0 which mean that the database contain a record about this username
+
+						if($count > 0)
+						{
+
+							$_SESSION['username_yahya_car_rental'] = $username;
+							$_SESSION['password_yahya_car_rental'] = $password;
+							$_SESSION['user_id_yahya_car_rental'] = $row['user_id'];
+							header('Location: dashboard.php');
+							die();
+						}
+						else
+						{
+							?>
+
+							<div class="alert alert-danger">
+								<button data-dismiss="alert" class="close close-sm" type="button">
+									<span aria-hidden="true">×</span>
+								</button>
+								<div class="messages">
+									<div>Username and/or password are incorrect!</div>
+								</div>
 							</div>
 
-						</div>
-							
-					</div>
+							<?php
+						}
+					}
+
+				?>
+
+				<!-- USERNAME INPUT -->
+
+				<div class="form-input">
+					<span class="txt1">Username</span>
+					<input type="text" name="username" class = "form-control" autocomplete="off">
 				</div>
-			</div>
+				
+				<!-- PASSWORD INPUT -->
+
+				<div class="form-input">
+					<span class="txt1">Password</span>
+					<input type="password" name="password" class="form-control" autocomplete="new-password">
+				</div>
+				
+				<!-- SIGN IN BUTTON -->
+
+				<p>
+					<button type="submit" name="signin-button" >Sign In</button>
+				</p>
+
+				<!-- FORGOT YOUR PASSWORD LINK -->
+
+				<span class="forgotPW">Forgot your password ? <a href="#">Reset it here.</a></span>
+			</form>
 		</div>
-	</div>
-	
-	<!-- Loading Scripts -->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap-select.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.dataTables.min.js"></script>
-	<script src="js/dataTables.bootstrap.min.js"></script>
-	<script src="js/Chart.min.js"></script>
-	<script src="js/fileinput.js"></script>
-	<script src="js/chartData.js"></script>
-	<script src="js/main.js"></script>
+		
+		<!-- Footer -->
+		<footer class="sticky-footer bg-white">
+			<div class="container my-auto">
+		  		<div class="copyright text-center my-auto">
+					<span>Copyright &copy; Car Rental Website by JAIRI IDRISS 2021</span>
+		  		</div>
+			</div>
+	  	</footer>
+		<!-- End of Footer -->
 
-</body>
-
+		<!-- INCLUDE JS SCRIPTS -->
+		<script src="Design/js/jquery.min.js"></script>
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		<script src="Design/js/bootstrap.bundle.min.js"></script>
+		<script src="Design/js/sb-admin-2.min.js"></script>
+		<script src="Design/js/main.js"></script>
+	</body>
 </html>
